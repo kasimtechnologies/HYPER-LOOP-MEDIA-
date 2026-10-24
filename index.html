@@ -1,0 +1,3276 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HYPER LOOP MEDIA ® — Video Editing & Creative Production | Turning Ideas Into Impact</title>
+  <meta name="description" content="HYPER LOOP MEDIA ® is a premier video editing and creative production agency turning bold ideas into measurable visual impact across commercials, brand films, VFX, and high-retention content." />
+
+  <!-- Best-in-Class Creative Agency Font Stack: Syne (Display), Space Grotesk (Headings/UI), Manrope (Body), JetBrains Mono (Timecodes) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       1. OBSIDIAN & BRUSHED PLATINUM DESIGN TOKENS (MATCHED TO HL LOGO)
+       ========================================================================== */
+    :root,
+    [data-theme="dark"] {
+      --bg-primary: #030304;
+      --bg-elevated: #08090C;
+      --bg-glass: rgba(8, 9, 12, 0.80);
+      --surface-card: rgba(14, 16, 21, 0.78);
+      --surface-card-solid: #0E1015;
+      --surface-card-hover: rgba(22, 25, 34, 0.90);
+      --surface-highlight: #1A1D26;
+
+      --border-subtle: rgba(255, 255, 255, 0.12);
+      --border-strong: rgba(255, 255, 255, 0.25);
+      --border-specular: rgba(255, 255, 255, 0.50);
+
+      --text-primary: #F8FAFC;
+      --text-secondary: #C6CBD6;
+      --text-muted: #8E96A8;
+
+      --accent-primary: #FFFFFF;
+      --accent-silver: #D5DAE4;
+      --accent-gunmetal: #7D8597;
+      --accent-on-primary: #040507;
+
+      --status-green: #34D399;
+      --status-red: #F87171;
+
+      --shadow-elevated: 0 28px 70px -16px rgba(0, 0, 0, 0.92), 0 0 0 1px rgba(255, 255, 255, 0.09);
+      --shadow-specular: 0 0 42px rgba(255, 255, 255, 0.18), 0 0 90px rgba(200, 212, 235, 0.08);
+      --scrim-modal: rgba(3, 3, 4, 0.90);
+      --beam-opacity: 1;
+      color-scheme: dark;
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #F3F4F7;
+      --bg-elevated: #FFFFFF;
+      --bg-glass: rgba(255, 255, 255, 0.88);
+      --surface-card: rgba(255, 255, 255, 0.92);
+      --surface-card-solid: #FFFFFF;
+      --surface-card-hover: #EBEEF5;
+      --surface-highlight: #E2E6F0;
+
+      --border-subtle: rgba(15, 18, 26, 0.12);
+      --border-strong: rgba(15, 18, 26, 0.26);
+      --border-specular: rgba(15, 18, 26, 0.45);
+
+      --text-primary: #090A0F;
+      --text-secondary: #2A2F3D;
+      --text-muted: #4F566B;
+
+      --accent-primary: #090A0F;
+      --accent-silver: #323846;
+      --accent-gunmetal: #646D82;
+      --accent-on-primary: #FFFFFF;
+
+      --status-green: #047857;
+      --status-red: #DC2626;
+
+      --shadow-elevated: 0 20px 50px -15px rgba(9, 10, 15, 0.12), 0 0 0 1px rgba(9, 10, 15, 0.08);
+      --shadow-specular: 0 10px 32px rgba(9, 10, 15, 0.14);
+      --scrim-modal: rgba(9, 10, 15, 0.76);
+      --beam-opacity: 0.18;
+      color-scheme: light;
+    }
+
+    :root {
+      --font-display: 'Syne', sans-serif;
+      --font-heading: 'Space Grotesk', sans-serif;
+      --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-24: 6rem;
+
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-pill: 9999px;
+
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-fast: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-base: 360ms cubic-bezier(0.16, 1, 0.3, 1);
+      --header-height: 80px;
+    }
+
+    /* ==========================================================================
+       2. RESET & EXACT LOGO BACKGROUND ATMOSPHERE (LIGHT RAYS + FILM GRAIN)
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--header-height) + 24px);
+      font-family: var(--font-sans);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-color: var(--bg-primary);
+      position: relative;
+      transition: background-color var(--transition-base), color var(--transition-base);
+    }
+
+    /* Diagonal Volumetric Top-Right Studio Light Beam (Matches hyperloop-logo.jpg) */
+    .studio-atmosphere {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: var(--beam-opacity);
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 68% 55% at 92% 4%, rgba(255, 255, 255, 0.17) 0%, rgba(210, 220, 238, 0.07) 38%, transparent 72%),
+        linear-gradient(128deg, transparent 15%, rgba(255, 255, 255, 0.03) 34%, rgba(255, 255, 255, 0.09) 47%, rgba(212, 220, 236, 0.035) 56%, transparent 74%),
+        linear-gradient(132deg, transparent 38%, rgba(255, 255, 255, 0.07) 49.5%, transparent 53%),
+        radial-gradient(circle at 50% 50%, transparent 40%, rgba(0, 0, 0, 0.85) 100%);
+    }
+
+    .studio-atmosphere::after {
+      content: "";
+      position: absolute;
+      top: -35%;
+      right: -20%;
+      width: 110vw;
+      height: 110vh;
+      background: conic-gradient(
+        from 205deg at 88% 8%,
+        transparent 0deg,
+        rgba(255, 255, 255, 0.06) 14deg,
+        rgba(255, 255, 255, 0.14) 24deg,
+        rgba(255, 255, 255, 0.04) 36deg,
+        transparent 52deg
+      );
+      filter: blur(42px);
+      animation: beamPulse 9s ease-in-out infinite alternate;
+    }
+
+    @keyframes beamPulse {
+      0% { opacity: 0.72; transform: translate3d(0, 0, 0) scale(1); }
+      100% { opacity: 1; transform: translate3d(-1.5%, 1.5%, 0) scale(1.04); }
+    }
+
+    #particleCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .film-grain-overlay {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0.055;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    .site-header,
+    main,
+    .site-footer {
+      position: relative;
+      z-index: 5;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: -100px;
+      left: var(--space-4);
+      z-index: 9999;
+      background: var(--accent-primary);
+      color: var(--accent-on-primary);
+      padding: var(--space-3) var(--space-6);
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      text-decoration: none;
+      transition: top var(--transition-fast);
+    }
+
+    .skip-link:focus {
+      top: var(--space-4);
+      outline: 3px solid var(--status-green);
+      outline-offset: 2px;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent-primary);
+      outline-offset: 3px;
+    }
+
+    img, svg, canvas, video {
+      display: block;
+      max-width: 100%;
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ==========================================================================
+       3. TYPOGRAPHY & BRUSHED METALLIC SILVER EFFECTS
+       ========================================================================== */
+    h1, h2 {
+      font-family: var(--font-display);
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+    }
+
+    h3, h4 {
+      font-family: var(--font-heading);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      text-wrap: balance;
+    }
+
+    .platinum-text {
+      background: linear-gradient(
+        115deg,
+        #FFFFFF 0%,
+        #E2E6F0 28%,
+        #8F96A6 50%,
+        #FFFFFF 72%,
+        #C8CEDA 100%
+      );
+      background-size: 220% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: platinumShimmer 7s linear infinite;
+      filter: drop-shadow(0 0 28px rgba(255, 255, 255, 0.16));
+    }
+
+    [data-theme="light"] .platinum-text {
+      background: linear-gradient(115deg, #090A0F 0%, #374151 45%, #090A0F 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: none;
+    }
+
+    @keyframes platinumShimmer {
+      0% { background-position: 0% center; }
+      100% { background-position: 220% center; }
+    }
+
+    .mono-label {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-silver);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .section-header {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      margin-bottom: var(--space-12);
+      max-width: 780px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.8vw, 3.2rem);
+      font-weight: 800;
+    }
+
+    .section-subtitle {
+      font-size: 1.12rem;
+      color: var(--text-secondary);
+      max-width: 64ch;
+    }
+
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 720ms var(--ease-out-expo), transform 720ms var(--ease-out-expo);
+    }
+
+    .reveal-up.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: 90ms; }
+    .delay-2 { transition-delay: 180ms; }
+    .delay-3 { transition-delay: 270ms; }
+
+    /* ==========================================================================
+       4. STICKY STUDIO NAVIGATION HEADER
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--header-height);
+      background: var(--bg-glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .header-inner {
+      height: 100%;
+      max-width: 1380px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      flex-wrap: nowrap;
+    }
+
+    .brand-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.06rem;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .brand-logo-img-wrap {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border-specular);
+      background: #030304;
+      box-shadow: 0 0 22px rgba(255, 255, 255, 0.18);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .brand-logo-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.12);
+    }
+
+    .brand-reg {
+      font-size: 0.75em;
+      color: var(--accent-silver);
+      margin-left: 3px;
+    }
+
+    .nav-links {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+      padding: 5px 6px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      flex-shrink: 0;
+    }
+
+    [data-theme="light"] .nav-links {
+      background: rgba(9, 10, 15, 0.03);
+    }
+
+    .nav-links li {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 0.88rem;
+      font-weight: 600;
+      line-height: 1;
+      color: var(--text-secondary);
+      padding: 10px 14px;
+      border-radius: var(--radius-pill);
+      white-space: nowrap;
+      transition: color var(--transition-fast), background-color var(--transition-fast);
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+      background: var(--surface-highlight);
+    }
+
+    .header-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 36px;
+      padding: 0 12px;
+      border-radius: var(--radius-pill);
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      line-height: 1;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--status-green);
+      box-shadow: 0 0 10px var(--status-green);
+      animation: statusPulse 2.2s infinite;
+    }
+
+    @keyframes statusPulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.65; }
+    }
+
+    .icon-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+      background: var(--surface-card);
+      color: var(--text-primary);
+      display: inline-grid;
+      place-items: center;
+      transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .icon-btn:hover {
+      background: var(--surface-card-hover);
+      border-color: var(--border-specular);
+    }
+
+    .btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      min-height: 48px;
+      padding: 0 var(--space-6);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.94rem;
+      letter-spacing: 0.02em;
+      overflow: hidden;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background-color var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #FFFFFF 0%, #DFE4EE 55%, #B8C0D0 100%);
+      color: #030407;
+      border: 1px solid #FFFFFF;
+      box-shadow: var(--shadow-specular);
+    }
+
+    [data-theme="light"] .btn-primary {
+      background: linear-gradient(135deg, #090A0F 0%, #262B38 100%);
+      color: #FFFFFF;
+      border-color: #090A0F;
+    }
+
+    .btn-primary::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.75), transparent);
+      transform: rotate(25deg);
+      transition: left 650ms var(--ease-out-expo);
+      pointer-events: none;
+    }
+
+    .btn-primary:hover::after {
+      left: 130%;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 52px rgba(255, 255, 255, 0.36);
+    }
+
+    .btn-secondary {
+      background: var(--surface-card);
+      color: var(--text-primary);
+      border: 1px solid var(--border-strong);
+      backdrop-filter: blur(12px);
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface-card-hover);
+      border-color: var(--border-specular);
+      transform: translateY(-2px);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+    }
+
+    /* ==========================================================================
+       5. HERO SECTION WITH ATTACHED LOGO MONOLITH & LIVE VIDEO SHOWREEL DECK
+       ========================================================================== */
+    .hero {
+      position: relative;
+      padding: var(--space-12) 0 var(--space-16);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1.15fr;
+      gap: var(--space-12);
+      align-items: center;
+    }
+
+    .hero-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-6);
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: 8px 16px;
+      border-radius: var(--radius-pill);
+      background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.03) 100%);
+      border: 1px solid var(--border-specular);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      box-shadow: 0 0 28px rgba(255, 255, 255, 0.1);
+      white-space: nowrap;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 4.8vw, 4.35rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin-bottom: var(--space-6);
+    }
+
+    .hero-manifesto {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      padding: var(--space-4) var(--space-6);
+      border-left: 3px solid var(--accent-primary);
+      background: linear-gradient(125deg, rgba(255, 255, 255, 0.08) 0%, rgba(14, 16, 21, 0.72) 100%);
+      border-top: 1px solid var(--border-subtle);
+      border-right: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin-bottom: var(--space-6);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero-manifesto-line {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .star-sparkle {
+      color: var(--accent-primary);
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+      animation: starTwinkle 3s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes starTwinkle {
+      0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.9; }
+      50% { transform: scale(1.22) rotate(12deg); opacity: 1; }
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 56ch;
+      margin-bottom: var(--space-8);
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      margin-bottom: var(--space-8);
+    }
+
+    .hero-trust-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .trust-stat-value {
+      font-family: var(--font-heading);
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .trust-stat-label {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    .hero-visual-stack {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+    }
+
+    /* Official Uploaded Logo Monolith Card */
+    .logo-monolith-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: #030304;
+      border: 1px solid var(--border-specular);
+      box-shadow: var(--shadow-elevated), 0 0 60px rgba(255, 255, 255, 0.12);
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      align-items: center;
+      gap: var(--space-6);
+      padding: var(--space-4) var(--space-6);
+      transform-style: preserve-3d;
+      transition: transform 260ms var(--ease-out-expo), border-color var(--transition-base);
+    }
+
+    .logo-monolith-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(125deg, transparent 20%, rgba(255, 255, 255, 0.12) 48%, transparent 75%);
+      transform: translateX(-100%);
+      animation: monolithSweep 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes monolithSweep {
+      0%, 35% { transform: translateX(-110%); }
+      75%, 100% { transform: translateX(110%); }
+    }
+
+    .logo-artwork-frame {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: #030304;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 0 36px rgba(255, 255, 255, 0.15);
+      flex-shrink: 0;
+    }
+
+    .logo-artwork-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 600ms var(--ease-out-expo);
+    }
+
+    .logo-monolith-card:hover .logo-artwork-frame img {
+      transform: scale(1.07);
+    }
+
+    .corner-flare {
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      width: 22px;
+      height: 22px;
+      pointer-events: none;
+      background: radial-gradient(circle, #FFFFFF 0%, rgba(255,255,255,0.6) 30%, transparent 70%);
+      animation: flarePulse 2.8s ease-in-out infinite;
+    }
+
+    .corner-flare::before,
+    .corner-flare::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: #FFFFFF;
+      transform: translate(-50%, -50%);
+    }
+
+    .corner-flare::before { width: 28px; height: 1.5px; }
+    .corner-flare::after { width: 1.5px; height: 28px; }
+
+    @keyframes flarePulse {
+      0%, 100% { transform: scale(0.85) rotate(-15deg); opacity: 0.75; }
+      50% { transform: scale(1.25) rotate(0deg); opacity: 1; }
+    }
+
+    .logo-monolith-copy {
+      color: #F8FAFC;
+    }
+
+    .logo-monolith-copy h2 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin: 4px 0 6px;
+    }
+
+    .logo-monolith-copy p {
+      font-size: 0.88rem;
+      color: #C6CBD6;
+      margin-bottom: var(--space-3);
+    }
+
+    .monolith-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .monolith-badge {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #E2E6F0;
+    }
+
+    /* Interactive Studio Showreel Deck with Live Video */
+    .studio-deck {
+      background: var(--surface-card);
+      border: 1px solid var(--border-strong);
+      border-top-color: var(--border-specular);
+      border-right-color: var(--border-specular);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-elevated);
+      backdrop-filter: blur(16px);
+      overflow: hidden;
+    }
+
+    .deck-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-3) var(--space-4);
+      background: var(--bg-elevated);
+      border-bottom: 1px solid var(--border-subtle);
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+    }
+
+    .deck-window-dots {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .deck-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--border-strong);
+    }
+
+    .deck-dot.rec {
+      background: var(--status-red);
+      box-shadow: 0 0 8px var(--status-red);
+    }
+
+    .deck-timecode {
+      color: var(--text-primary);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+    }
+
+    .deck-specs {
+      color: var(--text-muted);
+    }
+
+    .deck-viewport {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #030304;
+      overflow: hidden;
+    }
+
+    #heroShowreelVideo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: contrast(1.12) saturate(1.08);
+    }
+
+    .viewport-hud {
+      position: absolute;
+      inset: 0;
+      padding: var(--space-4);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(3,3,4,0.62) 0%, transparent 32%, transparent 58%, rgba(3,3,4,0.92) 100%);
+    }
+
+    .hud-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: #F8FAFC;
+    }
+
+    .hud-rec-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: rgba(3, 3, 4, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      color: #FFFFFF;
+    }
+
+    .hud-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: var(--space-4);
+      pointer-events: auto;
+    }
+
+    .hud-scene-info h3 {
+      font-size: 1.15rem;
+      color: #FFFFFF;
+      margin-bottom: 2px;
+    }
+
+    .hud-scene-info p {
+      font-size: 0.82rem;
+      color: #C6CBD6;
+    }
+
+    .hud-play-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      color: #030304;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 0 28px rgba(255, 255, 255, 0.65);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+      flex-shrink: 0;
+    }
+
+    .hud-play-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 38px rgba(255, 255, 255, 0.95);
+    }
+
+    .deck-chapters {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-elevated);
+    }
+
+    .chapter-btn {
+      padding: 10px 8px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      border-right: 1px solid var(--border-subtle);
+      text-align: center;
+      transition: background-color var(--transition-fast), color var(--transition-fast);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .chapter-btn:last-child {
+      border-right: none;
+    }
+
+    .chapter-btn[aria-selected="true"] {
+      background: var(--surface-highlight);
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .nle-timeline {
+      padding: var(--space-3) var(--space-4);
+      background: var(--surface-card-solid);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .nle-scrubber-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .nle-scrubber-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      min-width: 72px;
+    }
+
+    .nle-range {
+      flex: 1;
+      accent-color: #FFFFFF;
+      height: 5px;
+      cursor: pointer;
+    }
+
+    .nle-tracks {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nle-track {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      color: var(--text-muted);
+    }
+
+    .nle-clips {
+      height: 14px;
+      background: var(--bg-elevated);
+      border-radius: 4px;
+      display: flex;
+      gap: 3px;
+      padding: 2px;
+    }
+
+    .clip-block { height: 100%; border-radius: 2px; }
+    .clip-v1 { background: rgba(255, 255, 255, 0.55); border: 1px solid #FFFFFF; }
+    .clip-v2 { background: rgba(198, 203, 214, 0.38); border: 1px solid #C6CBD6; }
+    .clip-a1 { background: rgba(52, 211, 153, 0.42); border: 1px solid #34D399; }
+
+    /* ==========================================================================
+       6. INFINITE KINETIC MARQUEE TICKER
+       ========================================================================== */
+    .marquee-bar {
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 14px 0;
+      overflow: hidden;
+      display: flex;
+      user-select: none;
+    }
+
+    .marquee-track {
+      display: flex;
+      align-items: center;
+      gap: var(--space-8);
+      white-space: nowrap;
+      animation: marqueeScroll 28s linear infinite;
+      font-family: var(--font-heading);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .marquee-track span.sep {
+      color: var(--accent-primary);
+    }
+
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ==========================================================================
+       7. CLIENT IMPACT & ANIMATED METRICS BAR
+       ========================================================================== */
+    .impact-strip {
+      background: rgba(8, 9, 12, 0.65);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: var(--space-12) 0;
+      backdrop-filter: blur(10px);
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-6);
+    }
+
+    .impact-card {
+      padding: var(--space-4) var(--space-6);
+      border-left: 2px solid var(--border-specular);
+      background: linear-gradient(90deg, rgba(255,255,255,0.03) 0%, transparent 100%);
+    }
+
+    .impact-number {
+      font-family: var(--font-display);
+      font-size: clamp(2.1rem, 3.4vw, 2.9rem);
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1;
+      margin-bottom: var(--space-2);
+    }
+
+    .impact-desc {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+    }
+
+    /* ==========================================================================
+       8. BENTO SERVICES GRID WITH STUDIO IMAGERY & SPOTLIGHT
+       ========================================================================== */
+    .section {
+      padding: var(--space-24) 0;
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--space-6);
+    }
+
+    .bento-card {
+      position: relative;
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-top-color: var(--border-strong);
+      border-right-color: var(--border-strong);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: var(--space-6);
+      backdrop-filter: blur(16px);
+      overflow: hidden;
+      transition: transform 280ms var(--ease-out-expo), border-color var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .bento-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        480px circle at var(--mouse-x, 85%) var(--mouse-y, 15%),
+        rgba(255, 255, 255, 0.12),
+        transparent 55%
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .bento-card:hover {
+      border-color: var(--border-specular);
+      box-shadow: var(--shadow-elevated), 0 0 42px rgba(255, 255, 255, 0.08);
+      transform: translateY(-4px);
+    }
+
+    .bento-media-banner {
+      position: relative;
+      height: 175px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      margin-bottom: var(--space-2);
+      z-index: 2;
+    }
+
+    .bento-media-banner img,
+    .bento-media-banner video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(25%) contrast(1.15);
+      transition: transform 650ms var(--ease-out-expo), filter 450ms ease;
+    }
+
+    .bento-card:hover .bento-media-banner img,
+    .bento-card:hover .bento-media-banner video {
+      transform: scale(1.06);
+      filter: grayscale(0%) contrast(1.18);
+    }
+
+    .bento-media-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 20%, rgba(3, 3, 4, 0.82) 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: var(--space-3) var(--space-4);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: #F8FAFC;
+    }
+
+    .bento-span-7 { grid-column: span 7; }
+    .bento-span-5 { grid-column: span 5; }
+    .bento-span-6 { grid-column: span 6; }
+
+    .bento-content,
+    .bento-deliverables {
+      position: relative;
+      z-index: 2;
+    }
+
+    .bento-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-2);
+      margin-bottom: var(--space-3);
+    }
+
+    .bento-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+
+    .bento-title {
+      font-size: 1.55rem;
+      font-weight: 700;
+      margin-bottom: var(--space-3);
+    }
+
+    .bento-text {
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+    }
+
+    .bento-deliverables {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      list-style: none;
+    }
+
+    .bento-deliverables li {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+
+    /* ==========================================================================
+       9. BEFORE / AFTER LIVE VIDEO COLOR GRADE INSPECTOR
+       ========================================================================== */
+    .section-alt {
+      background: rgba(8, 9, 12, 0.74);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      backdrop-filter: blur(12px);
+    }
+
+    .comparison-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr;
+      gap: var(--space-12);
+      align-items: center;
+    }
+
+    .comparison-stage {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-specular);
+      box-shadow: var(--shadow-elevated);
+      user-select: none;
+      background: #030304;
+    }
+
+    .grade-layer {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: var(--space-4);
+    }
+
+    .grade-media-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    /* Master Graded Cinema Look (Rich contrast, deep obsidian shadows, vivid highlights) */
+    .grade-after .grade-media-bg {
+      filter: contrast(1.26) saturate(1.38) brightness(0.94);
+    }
+
+    /* Ungraded Flat S-Log3 Camera Sensor Look */
+    .grade-before {
+      clip-path: inset(0 calc(100% - var(--split-pct, 50%)) 0 0);
+      z-index: 2;
+    }
+
+    .grade-before .grade-media-bg {
+      filter: saturate(0.22) contrast(0.72) brightness(1.12) sepia(0.08);
+    }
+
+    .grade-badge,
+    .grade-footer-meta {
+      position: relative;
+      z-index: 3;
+    }
+
+    .grade-badge {
+      align-self: flex-start;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: rgba(3, 3, 4, 0.82);
+      color: #F8FAFC;
+      border: 1px solid rgba(255,255,255,0.28);
+      backdrop-filter: blur(8px);
+    }
+
+    .grade-badge.after-badge {
+      align-self: flex-end;
+      background: rgba(255, 255, 255, 0.94);
+      color: #030304;
+      border-color: #FFFFFF;
+    }
+
+    .grade-footer-meta {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: #F8FAFC;
+      background: rgba(3, 3, 4, 0.68);
+      padding: 6px 10px;
+      border-radius: 6px;
+      backdrop-filter: blur(6px);
+    }
+
+    .slider-divider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: var(--split-pct, 50%);
+      width: 2px;
+      background: #FFFFFF;
+      transform: translateX(-50%);
+      pointer-events: none;
+      box-shadow: 0 0 20px #FFFFFF;
+      z-index: 4;
+    }
+
+    .slider-handle-visual {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #030304;
+      border: 2px solid #FFFFFF;
+      color: #FFFFFF;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 0 24px rgba(255,255,255,0.6);
+    }
+
+    .comparison-range-input {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: ew-resize;
+      z-index: 6;
+    }
+
+    .spec-checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      margin-top: var(--space-6);
+    }
+
+    .spec-checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      color: var(--text-secondary);
+    }
+
+    .spec-checklist svg {
+      color: var(--accent-primary);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* ==========================================================================
+       10. SELECTED WORK PORTFOLIO WITH LIVE STOCK VIDEO PREVIEWS
+       ========================================================================== */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-bottom: var(--space-8);
+    }
+
+    .filter-btn {
+      min-height: 42px;
+      padding: 0 var(--space-4);
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      background: var(--surface-card);
+      color: var(--text-secondary);
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.88rem;
+      transition: all var(--transition-fast);
+    }
+
+    .filter-btn:hover {
+      color: var(--text-primary);
+      border-color: var(--border-specular);
+    }
+
+    .filter-btn[aria-pressed="true"] {
+      background: var(--accent-primary);
+      color: var(--accent-on-primary);
+      border-color: var(--accent-primary);
+      box-shadow: var(--shadow-specular);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+
+    .work-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      backdrop-filter: blur(14px);
+      transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .work-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-specular);
+      box-shadow: var(--shadow-elevated);
+    }
+
+    .work-card[hidden] {
+      display: none !important;
+    }
+
+    .work-thumb {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      padding: var(--space-4);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #FFFFFF;
+      overflow: hidden;
+      background: #050608;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .work-video-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      filter: brightness(0.78) contrast(1.14);
+      transition: transform 650ms var(--ease-out-expo), filter 400ms ease;
+    }
+
+    .work-card:hover .work-video-bg {
+      transform: scale(1.06);
+      filter: brightness(0.92) contrast(1.18);
+    }
+
+    .work-thumb::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(3,3,4,0.45) 0%, transparent 45%, rgba(3,3,4,0.85) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .work-badge-row,
+    .work-thumb-bottom {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .work-badge-row {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+    }
+
+    .work-pill {
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(3, 3, 4, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.26);
+      backdrop-filter: blur(6px);
+    }
+
+    .work-body {
+      padding: var(--space-6);
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+      gap: var(--space-4);
+    }
+
+    .work-title {
+      font-size: 1.32rem;
+      font-weight: 700;
+      margin-bottom: var(--space-2);
+    }
+
+    .work-desc {
+      font-size: 0.94rem;
+      color: var(--text-secondary);
+    }
+
+    .work-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .work-metric {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--status-green);
+    }
+
+    /* ==========================================================================
+       11. 4-STAGE PRODUCTION PIPELINE & CONTACT BRIEF FORM
+       ========================================================================== */
+    .pipeline-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-6);
+    }
+
+    .step-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-subtle);
+      border-top-color: var(--border-strong);
+      border-radius: var(--radius-md);
+      padding: var(--space-6);
+      backdrop-filter: blur(12px);
+      transition: transform var(--transition-base), border-color var(--transition-base);
+    }
+
+    .step-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-specular);
+    }
+
+    .step-num {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: var(--space-4);
+      display: inline-block;
+      padding: 4px 10px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .step-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: var(--space-3);
+    }
+
+    .step-desc {
+      font-size: 0.94rem;
+      color: var(--text-secondary);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: var(--space-12);
+      align-items: start;
+    }
+
+    .contact-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-strong);
+      border-top-color: var(--border-specular);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-elevated);
+      backdrop-filter: blur(16px);
+    }
+
+    .error-summary {
+      background: rgba(248, 113, 113, 0.14);
+      border: 2px solid var(--status-red);
+      border-radius: var(--radius-sm);
+      padding: var(--space-4);
+      margin-bottom: var(--space-6);
+      color: var(--text-primary);
+    }
+
+    .error-summary h3 {
+      font-size: 1rem;
+      color: var(--status-red);
+      margin-bottom: var(--space-2);
+    }
+
+    .error-summary ul {
+      padding-left: var(--space-6);
+      font-size: 0.9rem;
+    }
+
+    .error-summary a {
+      text-decoration: underline;
+      font-weight: 600;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+
+    .form-group {
+      margin-bottom: var(--space-6);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-label {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--text-primary);
+    }
+
+    .form-hint {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .form-control {
+      min-height: 48px;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-strong);
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      transition: border-color var(--transition-fast);
+    }
+
+    .form-control[aria-invalid="true"] {
+      border-color: var(--status-red);
+    }
+
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .field-error {
+      font-size: 0.82rem;
+      color: var(--status-red);
+      font-weight: 500;
+    }
+
+    .form-success {
+      background: rgba(52, 211, 153, 0.14);
+      border: 2px solid var(--status-green);
+      border-radius: var(--radius-md);
+      padding: var(--space-6);
+      margin-top: var(--space-4);
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border-subtle);
+      padding: var(--space-16) 0 var(--space-8);
+    }
+
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--space-8);
+      padding-bottom: var(--space-12);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .footer-bottom {
+      padding-top: var(--space-6);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--space-4);
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* Video Lightbox Modal */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: var(--scrim-modal);
+      backdrop-filter: blur(12px);
+      display: grid;
+      place-items: center;
+      padding: var(--space-6);
+    }
+
+    .modal-backdrop[hidden] {
+      display: none !important;
+    }
+
+    .modal-dialog {
+      width: 100%;
+      max-width: 820px;
+      background: var(--surface-card-solid);
+      border: 1px solid var(--border-specular);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      box-shadow: var(--shadow-elevated);
+    }
+
+    .modal-video-wrap {
+      aspect-ratio: 16 / 9;
+      background: #000000;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      margin-bottom: var(--space-4);
+    }
+
+    .modal-video-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 1240px) {
+      .status-pill {
+        display: none;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .comparison-wrapper,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bento-span-7,
+      .bento-span-5,
+      .bento-span-6 {
+        grid-column: span 12;
+      }
+
+      .portfolio-grid,
+      .impact-grid,
+      .pipeline-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 960px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        border-radius: 0;
+        background: var(--bg-elevated);
+        border-bottom: 1px solid var(--border-strong);
+        flex-direction: column;
+        padding: var(--space-4);
+        gap: var(--space-2);
+      }
+
+      .nav-links.is-open {
+        display: flex;
+      }
+
+      .mobile-menu-btn {
+        display: inline-grid;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .logo-monolith-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+        justify-items: center;
+      }
+
+      .monolith-badges {
+        justify-content: center;
+      }
+
+      .portfolio-grid,
+      .impact-grid,
+      .pipeline-grid,
+      .form-row,
+      .hero-trust-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .deck-chapters {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal-up {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- FIXED LOGO-MATCHED VOLUMETRIC LIGHT RAYS, INTERACTIVE PARTICLES & FILM GRAIN -->
+  <div class="studio-atmosphere" aria-hidden="true"></div>
+  <canvas id="particleCanvas" aria-hidden="true"></canvas>
+  <div class="film-grain-overlay" aria-hidden="true"></div>
+
+  <!-- ==================== STICKY STUDIO HEADER ==================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand-logo" aria-label="HYPER LOOP MEDIA Home">
+        <span class="brand-logo-img-wrap">
+          <img src="assets/hyperloop-logo.jpg" alt="HYPER LOOP MEDIA Official Monogram" />
+        </span>
+        <span>HYPER LOOP MEDIA<span class="brand-reg">®</span></span>
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links" id="primary-nav">
+          <li><a href="#capabilities">Capabilities</a></li>
+          <li><a href="#craft">Color &amp; VFX</a></li>
+          <li><a href="#work">Selected Work</a></li>
+          <li><a href="#pipeline">Pipeline</a></li>
+          <li><a href="#contact">Book Production</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <div class="status-pill" aria-label="Booking status: Q4 production slots open">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>BOOKING Q4 SLOTS</span>
+        </div>
+
+        <button type="button" class="icon-btn" id="particleToggleBtn" aria-label="Pause background particle animation" aria-pressed="true" title="Toggle Studio Particles">
+          <svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+            <path d="M128 16l24 64 64 24-64 24-24 64-24-64-64-24 64-24zM208 160l10 28 28 10-28 10-10 28-10-28-28-10 28-10z"/>
+          </svg>
+        </button>
+
+        <button type="button" class="icon-btn" id="themeToggleBtn" aria-label="Switch to light theme" aria-pressed="false" title="Toggle Theme">
+          <svg width="20" height="20" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="128" cy="128" r="56"/>
+            <line x1="128" y1="24" x2="128" y2="48"/>
+            <line x1="128" y1="208" x2="128" y2="232"/>
+            <line x1="24" y1="128" x2="48" y2="128"/>
+            <line x1="208" y1="128" x2="232" y2="128"/>
+          </svg>
+        </button>
+
+        <button type="button" class="icon-btn mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
+          <svg width="22" height="22" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="20" stroke-linecap="round" aria-hidden="true">
+            <line x1="40" y1="72" x2="216" y2="72"/>
+            <line x1="40" y1="128" x2="216" y2="128"/>
+            <line x1="40" y1="184" x2="216" y2="184"/>
+          </svg>
+        </button>
+
+        <a href="#contact" class="btn btn-primary">
+          <span>Start a Project</span>
+          <svg width="18" height="18" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="40" y1="128" x2="216" y2="128"/>
+            <polyline points="144 56 216 128 144 200"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container hero-grid">
+        <div class="reveal-up is-visible">
+          <div class="hero-badge-row">
+            <span class="hero-pill">
+              <svg class="star-sparkle" width="14" height="14" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+                <path d="M128 16l30 78 78 30-78 30-30 78-30-78-78-30 78-30z"/>
+              </svg>
+              HYPER LOOP MEDIA ®
+            </span>
+            <span class="mono-label">OBSIDIAN STUDIO // 4K &amp; 8K POST</span>
+          </div>
+
+          <h1 id="hero-heading" class="hero-title">
+            Turning Bold Ideas Into <span class="platinum-text">Cinematic Impact.</span>
+          </h1>
+
+          <div class="hero-manifesto" role="region" aria-label="Core Brand Pillars">
+            <div class="hero-manifesto-line">
+              <svg class="star-sparkle" width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+                <path d="M128 16l30 78 78 30-78 30-30 78-30-78-78-30 78-30z"/>
+              </svg>
+              <span>Video Editing &amp; Creative Production</span>
+            </div>
+            <div class="hero-manifesto-line">
+              <svg class="star-sparkle" width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+                <path d="M128 16l30 78 78 30-78 30-30 78-30-78-78-30 78-30z"/>
+              </svg>
+              <span>Turning Ideas Into Impact</span>
+            </div>
+          </div>
+
+          <p class="hero-description">
+            We engineer frame-accurate commercials, high-retention social narratives, 3D motion systems, and theatrical color grades for category-defining brands and creators.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#contact" class="btn btn-primary">
+              <span>Launch Your Campaign</span>
+              <svg width="18" height="18" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="40" y1="128" x2="216" y2="128"/>
+                <polyline points="144 56 216 128 144 200"/>
+              </svg>
+            </a>
+            <a href="#work" class="btn btn-secondary">
+              <svg width="18" height="18" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+                <path d="M228.4 114.3 76.2 26.2A16 16 0 0 0 52 40v176a16 16 0 0 0 24.2 13.8l152.2-88.1a16 16 0 0 0 0-27.4Z"/>
+              </svg>
+              <span>Watch Live Showreels</span>
+            </a>
+          </div>
+
+          <div class="hero-trust-strip">
+            <div>
+              <div class="trust-stat-value">420M+</div>
+              <div class="trust-stat-label">Verified Client Views</div>
+            </div>
+            <div>
+              <div class="trust-stat-value">74.8%</div>
+              <div class="trust-stat-label">Avg. 30s Retention Rate</div>
+            </div>
+            <div>
+              <div class="trust-stat-value">48 hrs</div>
+              <div class="trust-stat-label">First-Cut Turnaround</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Stack: Official Uploaded Logo Monolith + Live Video Studio Showreel Deck -->
+        <div class="hero-visual-stack reveal-up delay-1 is-visible">
+          <div class="logo-monolith-card" id="logoMonolithCard">
+            <div class="logo-artwork-frame">
+              <img src="assets/hyperloop-logo.jpg" alt="HYPER LOOP MEDIA ® Brushed Platinum Monogram on Obsidian Background" />
+              <span class="corner-flare" aria-hidden="true"></span>
+            </div>
+            <div class="logo-monolith-copy">
+              <span class="mono-label">SIGNATURE STUDIO INSIGNIA</span>
+              <h2>HYPER LOOP MEDIA ®</h2>
+              <p>Precision-cut velocity meets theatrical light. Engineered for brands that refuse to blend in.</p>
+              <div class="monolith-badges">
+                <span class="monolith-badge">✦ VIDEO EDITING</span>
+                <span class="monolith-badge">✦ CREATIVE PRODUCTION</span>
+                <span class="monolith-badge">✦ 8K RAW PIPELINE</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Hyper Loop NLE Showreel Monitor with Real Stock Video -->
+          <div class="studio-deck" role="region" aria-label="Interactive Showreel Monitor">
+            <div class="deck-topbar">
+              <div class="deck-window-dots" aria-hidden="true">
+                <span class="deck-dot rec"></span>
+                <span class="deck-dot"></span>
+                <span class="deck-dot"></span>
+              </div>
+              <div class="deck-timecode" id="timecodeDisplay" aria-live="off">TC 00:00:00:00</div>
+              <div class="deck-specs">4K UHD · 60FPS · ACEScct</div>
+            </div>
+
+            <div class="deck-viewport">
+              <video
+                id="heroShowreelVideo"
+                src="https://assets.mixkit.co/videos/41574/41574-720.mp4"
+                poster="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80"
+                autoplay
+                muted
+                loop
+                playsinline
+              ></video>
+              <div class="viewport-hud">
+                <div class="hud-top">
+                  <span class="hud-rec-badge">● LIVE MASTER REEL</span>
+                  <span id="reelCodecLabel">PRORES 4444 XQ // LUT: OBSIDIAN-SILVER</span>
+                </div>
+                <div class="hud-bottom">
+                  <div class="hud-scene-info">
+                    <h3 id="reelSceneTitle">01 // Flagship Brand Anthems</h3>
+                    <p id="reelSceneSub">Dynamic rhythm cutting, volumetric light synthesis &amp; spatial sound design</p>
+                  </div>
+                  <button type="button" class="hud-play-btn" id="reelPlayToggle" aria-label="Pause showreel video" aria-pressed="true">
+                    <svg id="reelPlayIcon" width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+                      <rect x="56" y="48" width="48" height="160" rx="8"/>
+                      <rect x="152" y="48" width="48" height="160" rx="8"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="deck-chapters" role="tablist" aria-label="Showreel Chapters">
+              <button type="button" role="tab" class="chapter-btn" aria-selected="true" data-chapter="0">01 Brand Film</button>
+              <button type="button" role="tab" class="chapter-btn" aria-selected="false" data-chapter="1">02 Retention Edit</button>
+              <button type="button" role="tab" class="chapter-btn" aria-selected="false" data-chapter="2">03 3D &amp; VFX</button>
+              <button type="button" role="tab" class="chapter-btn" aria-selected="false" data-chapter="3">04 Night Aerial</button>
+            </div>
+
+            <div class="nle-timeline">
+              <div class="nle-scrubber-row">
+                <label for="timelineScrubber" class="nle-scrubber-label">PLAYHEAD</label>
+                <input type="range" id="timelineScrubber" class="nle-range" min="0" max="100" value="0" aria-label="Scrub showreel timeline position" />
+              </div>
+              <div class="nle-tracks" aria-hidden="true">
+                <div class="nle-track">
+                  <span>V2 · VFX</span>
+                  <div class="nle-clips">
+                    <div class="clip-block clip-v2" style="width: 26%"></div>
+                    <div class="clip-block clip-v2" style="width: 38%"></div>
+                    <div class="clip-block clip-v2" style="width: 32%"></div>
+                  </div>
+                </div>
+                <div class="nle-track">
+                  <span>V1 · CUT</span>
+                  <div class="nle-clips">
+                    <div class="clip-block clip-v1" style="width: 45%"></div>
+                    <div class="clip-block clip-v1" style="width: 25%"></div>
+                    <div class="clip-block clip-v1" style="width: 28%"></div>
+                  </div>
+                </div>
+                <div class="nle-track">
+                  <span>A1 · SFX</span>
+                  <div class="nle-clips">
+                    <div class="clip-block clip-a1" style="width: 65%"></div>
+                    <div class="clip-block clip-a1" style="width: 33%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== INFINITE KINETIC MARQUEE ==================== -->
+    <div class="marquee-bar" aria-hidden="true">
+      <div class="marquee-track">
+        <span>HYPER LOOP MEDIA ®</span><span class="sep">✦</span>
+        <span>VIDEO EDITING &amp; CREATIVE PRODUCTION</span><span class="sep">✦</span>
+        <span>TURNING IDEAS INTO IMPACT</span><span class="sep">✦</span>
+        <span>COMMERCIAL ANTHEMS</span><span class="sep">✦</span>
+        <span>HIGH-RETENTION NARRATIVES</span><span class="sep">✦</span>
+        <span>3D MOTION &amp; VFX FINISHING</span><span class="sep">✦</span>
+        <span>HYPER LOOP MEDIA ®</span><span class="sep">✦</span>
+        <span>VIDEO EDITING &amp; CREATIVE PRODUCTION</span><span class="sep">✦</span>
+        <span>TURNING IDEAS INTO IMPACT</span><span class="sep">✦</span>
+        <span>COMMERCIAL ANTHEMS</span><span class="sep">✦</span>
+        <span>HIGH-RETENTION NARRATIVES</span><span class="sep">✦</span>
+        <span>3D MOTION &amp; VFX FINISHING</span><span class="sep">✦</span>
+      </div>
+    </div>
+
+    <!-- ==================== QUANTIFIED IMPACT BAR ==================== -->
+    <section class="impact-strip" aria-label="Agency Performance Metrics">
+      <div class="container impact-grid">
+        <div class="impact-card reveal-up">
+          <div class="impact-number">3.8<span>x</span></div>
+          <p class="impact-desc">Average lift in paid-ad ROAS from hook-engineered creative variations.</p>
+        </div>
+        <div class="impact-card reveal-up delay-1">
+          <div class="impact-number">1,400<span>+</span></div>
+          <p class="impact-desc">Master sequences delivered across YouTube, Broadcast, TikTok, and Reels.</p>
+        </div>
+        <div class="impact-card reveal-up delay-2">
+          <div class="impact-number">99.4<span>%</span></div>
+          <p class="impact-desc">On-schedule delivery rate with frame-accurate Frame.io review pipelines.</p>
+        </div>
+        <div class="impact-card reveal-up delay-3">
+          <div class="impact-number">12<span>-Bit</span></div>
+          <p class="impact-desc">Theatrical DaVinci Resolve color pipeline &amp; bespoke Dolby Atmos sound stems.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 01 // CAPABILITIES BENTO GRID WITH STUDIO IMAGERY & VIDEO ==================== -->
+    <section id="capabilities" class="section" aria-labelledby="capabilities-heading">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="mono-label">01 // CAPABILITIES</span>
+          <h2 id="capabilities-heading" class="section-title">End-to-End <span class="platinum-text">Video Editing &amp; Creative Production</span></h2>
+          <p class="section-subtitle">
+            Every frame is engineered to capture attention in the first 1.5 seconds, sustain emotional momentum, and convert viewers into lifelong advocates.
+          </p>
+        </div>
+
+        <div class="bento-grid">
+          <!-- Card 1 -->
+          <article class="bento-card bento-span-7 reveal-up">
+            <div class="bento-content">
+              <div class="bento-media-banner">
+                <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80" alt="Multi-track video editing timeline workstation in a dark studio" loading="lazy" />
+                <div class="bento-media-overlay">
+                  <span>NLE MASTER SUITE // PREMIERE &amp; DAVINCI</span>
+                  <span>60FPS TIMELINE</span>
+                </div>
+              </div>
+              <div class="bento-meta">
+                <span class="bento-tag">CORE PILLAR · POST-PRODUCTION</span>
+              </div>
+              <h3 class="bento-title">Precision Narrative &amp; High-Retention Editing</h3>
+              <p class="bento-text">
+                We combine cognitive pacing theory with acoustic rhythm cutting. From flagship documentaries and founder keynotes to high-velocity YouTube &amp; social engines, our editors sculpt raw terabytes into unskippable stories.
+              </p>
+            </div>
+            <ul class="bento-deliverables" aria-label="Editing deliverables">
+              <li>Psychometric Hook Pacing</li>
+              <li>Multi-Cam Sync &amp; Assembly</li>
+              <li>Bespoke Sound Design &amp; Foley</li>
+              <li>Dynamic Subtitling &amp; Kinetic Type</li>
+            </ul>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="bento-card bento-span-5 reveal-up delay-1">
+            <div class="bento-content">
+              <div class="bento-media-banner">
+                <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80" alt="Cinema camera rig and production clapperboard on set" loading="lazy" />
+                <div class="bento-media-overlay">
+                  <span>PRINCIPAL PHOTOGRAPHY</span>
+                  <span>RED 8K VV</span>
+                </div>
+              </div>
+              <div class="bento-meta">
+                <span class="bento-tag">ON-SET &amp; STUDIO</span>
+              </div>
+              <h3 class="bento-title">Commercial &amp; Brand Film Production</h3>
+              <p class="bento-text">
+                Full-scale creative direction, storyboarding, cinema camera packages (RED V-Raptor / ARRI Alexa Mini LF), volumetric studio lighting, and executive production.
+              </p>
+            </div>
+            <ul class="bento-deliverables" aria-label="Production deliverables">
+              <li>Creative Direction</li>
+              <li>Cinema Crew &amp; Lighting</li>
+              <li>Product Hero Macros</li>
+            </ul>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="bento-card bento-span-6 reveal-up">
+            <div class="bento-content">
+              <div class="bento-media-banner">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80" alt="Abstract 3D liquid metallic CGI waves" loading="lazy" />
+                <div class="bento-media-overlay">
+                  <span>3D CGI &amp; VFX LAB</span>
+                  <span>OCTANE / C4D</span>
+                </div>
+              </div>
+              <div class="bento-meta">
+                <span class="bento-tag">MOTION LAB</span>
+              </div>
+              <h3 class="bento-title">3D Motion Graphics, CGI &amp; Visual Effects</h3>
+              <p class="bento-text">
+                Seamless UI screen replacements, 3D metallic monolith reveals, rotoscoping, particle simulations, and custom MOGRT design systems built in After Effects, Cinema 4D, and Blender.
+              </p>
+            </div>
+            <ul class="bento-deliverables" aria-label="Motion and VFX deliverables">
+              <li>3D Product Visualization</li>
+              <li>HUD &amp; UI Motion Systems</li>
+              <li>Clean Plate &amp; Compositing</li>
+            </ul>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="bento-card bento-span-6 reveal-up delay-1">
+            <div class="bento-content">
+              <div class="bento-media-banner">
+                <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&q=80" alt="Studio audio mastering console and monitors in dark room" loading="lazy" />
+                <div class="bento-media-overlay">
+                  <span>SONIC &amp; VIRAL ENGINE</span>
+                  <span>MULTI-RATIO</span>
+                </div>
+              </div>
+              <div class="bento-meta">
+                <span class="bento-tag">GROWTH ENGINE</span>
+              </div>
+              <h3 class="bento-title">Multi-Format Performance &amp; Viral Systems</h3>
+              <p class="bento-text">
+                Turn a single hero shoot into 30+ platform-native assets. We deliver synchronized 16:9 master cuts, 9:16 vertical reels, and 1:1 paid ad hook matrices with A/B tested openings.
+              </p>
+            </div>
+            <ul class="bento-deliverables" aria-label="Growth deliverables">
+              <li>16:9 · 9:16 · 1:1 Matrix</li>
+              <li>3-Hook Paid Ad Variations</li>
+              <li>Retention Analytics Audit</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 02 // INTERACTIVE LIVE VIDEO COLOR & VFX INSPECTOR ==================== -->
+    <section id="craft" class="section section-alt" aria-labelledby="craft-heading">
+      <div class="container comparison-wrapper">
+        <div class="reveal-up">
+          <span class="mono-label">02 // THE HYPER LOOP DIFFERENCE</span>
+          <h2 id="craft-heading" class="section-title" style="margin-top: var(--space-3);">
+            From Flat Log Footage to <span class="platinum-text">Obsidian &amp; Silver Cinema</span>
+          </h2>
+          <p class="section-subtitle" style="margin-top: var(--space-4);">
+            Drag the live video slider or use your keyboard arrow keys to inspect how our colorists transform flat camera sensor footage into theatrical cinema in real time.
+          </p>
+
+          <ul class="spec-checklist">
+            <li>
+              <svg width="20" height="20" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="216 72 104 184 48 128"/>
+              </svg>
+              <span><strong>32-Bit Float Color Grading:</strong> Custom specular highlight roll-off, rich obsidian blacks, and film grain emulation in DaVinci Resolve Studio.</span>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="216 72 104 184 48 128"/>
+              </svg>
+              <span><strong>Volumetric Lighting &amp; Optical VFX:</strong> Anamorphic edge flares, atmospheric dust compositing, and sub-pixel tracking.</span>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="216 72 104 184 48 128"/>
+              </svg>
+              <span><strong>Broadcast Loudness Mastering:</strong> Calibrated -14 LUFS web masters &amp; -24 LKFS theatrical stems.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="comparison-stage reveal-up delay-1" id="gradeComparisonStage" style="--split-pct: 48%;">
+          <!-- After Layer (Graded Live Video) -->
+          <div class="grade-layer grade-after" aria-hidden="true">
+            <video
+              class="grade-media-bg"
+              src="https://assets.mixkit.co/videos/26070/26070-720.mp4"
+              poster="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80"
+              autoplay
+              muted
+              loop
+              playsinline
+            ></video>
+            <span class="grade-badge after-badge">HYPER LOOP MASTER GRADE + VFX (ACEScct)</span>
+            <div class="grade-footer-meta">
+              <span>DR: 15.2 STOPS</span>
+              <span>LUT: HYPER-OBSIDIAN-01</span>
+            </div>
+          </div>
+
+          <!-- Before Layer (Raw Log Live Video) -->
+          <div class="grade-layer grade-before" aria-hidden="true">
+            <video
+              class="grade-media-bg"
+              src="https://assets.mixkit.co/videos/26070/26070-720.mp4"
+              poster="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80"
+              autoplay
+              muted
+              loop
+              playsinline
+            ></video>
+            <span class="grade-badge">RAW CAMERA LOG (UNGRADED S-LOG3)</span>
+            <div class="grade-footer-meta">
+              <span>ISO 800 BASE</span>
+              <span>WB: 5600K RAW</span>
+            </div>
+          </div>
+
+          <!-- Divider Line -->
+          <div class="slider-divider" aria-hidden="true">
+            <div class="slider-handle-visual">
+              <svg width="20" height="20" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="96 80 48 128 96 176"/>
+                <polyline points="160 80 208 128 160 176"/>
+              </svg>
+            </div>
+          </div>
+
+          <label for="gradeSlider" class="sr-only">Compare Raw Log Footage with Hyper Loop Master Color Grade</label>
+          <input
+            type="range"
+            id="gradeSlider"
+            class="comparison-range-input"
+            min="5"
+            max="95"
+            value="48"
+            aria-label="Comparison slider between Raw Log Footage and Hyper Loop Master Color Grade"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 03 // SELECTED WORK PORTFOLIO (LIVE STOCK VIDEOS) ==================== -->
+    <section id="work" class="section" aria-labelledby="work-heading">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="mono-label">03 // SELECTED WORKS</span>
+          <h2 id="work-heading" class="section-title">Campaigns Built to <span class="platinum-text">Dominate Feeds &amp; Screens</span></h2>
+          <p class="section-subtitle">
+            Every card below features live motion footage. Filter by category or click <strong>Watch Reel</strong> to open the full production player.
+          </p>
+        </div>
+
+        <div class="filter-bar reveal-up" role="toolbar" aria-label="Filter portfolio projects by category">
+          <button type="button" class="filter-btn" aria-pressed="true" data-filter="all">All Productions (6)</button>
+          <button type="button" class="filter-btn" aria-pressed="false" data-filter="commercial">Commercials</button>
+          <button type="button" class="filter-btn" aria-pressed="false" data-filter="retention">High-Retention Edits</button>
+          <button type="button" class="filter-btn" aria-pressed="false" data-filter="vfx">3D &amp; VFX</button>
+        </div>
+
+        <div class="portfolio-grid" id="portfolioGrid">
+          <!-- Work Item 1 -->
+          <article class="work-card reveal-up" data-category="commercial">
+            <div class="work-thumb">
+              <video
+                class="work-video-bg"
+                src="https://assets.mixkit.co/videos/41574/41574-720.mp4"
+                poster="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80"
+                autoplay
+                muted
+                loop
+                playsinline
+              ></video>
+              <div class="work-badge-row">
+                <span class="work-pill">GLOBAL COMMERCIAL</span>
+                <span class="work-pill">01:45 · 4K</span>
+              </div>
+              <div class="work-thumb-bottom">
+                <span class="mono-label" style="color:#FFFFFF;">AERO-X MOTORSPORT</span>
+              </div>
+            </div>
+            <div class="work-body">
+              <div>
+                <h3 class="work-title">Velocity Unbound — Launch Anthem</h3>
+                <p class="work-desc">Full-service production, FPV drone pursuit choreography, aggressive speed-ramping, and custom spatial engine sound design.</p>
+              </div>
+              <div class="work-footer">
+                <span class="work-metric">+410% Launch CTR</span>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  style="min-height:38px; padding:0 14px; font-size:0.84rem;"
+                  data-reel-title="Velocity Unbound — Launch Anthem"
+                  data-reel-video="https://assets.mixkit.co/videos/41574/41574-720.mp4"
+                  data-reel-notes="Shot on RED V-Raptor 8K VV. 142 VFX shots, custom Dolby Atmos sound mix, and 18 localized social cutdowns delivered in 10 days."
+                >
+                  Watch Reel
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work Item 2 -->
+          <article class="work-card reveal-up delay-1" data-category="vfx">
+            <div class="work-thumb">
+              <video
+                class="work-video-bg"
+                src="https://assets.mixkit.co/videos/44561/44561-720.mp4"
+                poster="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80"
+                autoplay
+                muted
+                loop
+                playsinline
+              ></video>
+              <div class="work-badge-row">
+                <span class="work-pill">3D CGI &amp; VFX</span>
+                <span class="work-pill">00:58 · 60FPS</span>
+              </div>
+              <div class="work-thumb-bottom">
+                <span class="mono-label" style="color:#FFFFFF;">NOVA SILICON LABS</span>
+              </div>
+            </div>
+            <div class="work-body">
+              <div>
+                <h3 class="work-title">Quantum Architecture Reveal</h3>
+                <p class="work-desc">Photorealistic brushed-platinum 3D chip teardown, procedural particle streams, and seamless live-action keynote integration.</p>
+              </div>
+              <div class="work-footer">
+                <span class="work-metric">18.4M Keynote Views</span>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  style="min-height:38px; padding:0 14px; font-size:0.84rem;"
+                  data-reel-title="Quantum Architecture Reveal"
+                  data-reel-video="https://assets.mixkit.co/videos/44561/44561-720.mp4"
+                  data-reel-notes="Built with Cinema 4D, Octane Render, and After Effects compositing. Delivered in 4K 60FPS for giant LED stage wall + livestream."
+                >
+                  Watch Reel
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work Item 3 -->
+          <article class="work-card reveal-up delay-2" data-category="retention">
+            <div class="work-thumb">
+              <video
+                class="work-video-bg"
+                src="https://assets.mixkit.co/videos/34487/34487-720.mp4"
+                poster="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80"
+                autoplay
+                muted
+                loop
+                playsinline
+              ></video>
+              <div class="work-badge-row">
+                <span class="work-pill">DOCUMENTARY EDIT</span>
+                <span class="work-pill">22:10 · 4K</span>
+              </div>
+              <div class="work-thumb-bottom">
+                <span class="mono-label" style="color:#FFFFFF;">APEX CREATOR ORIGINALS</span>
+              </div>
+            </div>
+            <div class="work-body">
+              <div>
+                <h3 class="work-title">Inside the 100-Hour Endurance Challenge</h3>
+                <p class="work-desc">Multi-cam narrative assembly from 14TB of raw footage with bespoke 3D map trackers and tension-driven pacing.</p>
+              </div>
+              <div class="work-footer">
+                <span class="work-metric">78.2% Avg. View Duration</span>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  style="min-height:38px; padding:0 14px; font-size:0.84rem;"
+                  data-reel-title="Inside the 100-Hour Endurance Challenge"
+                  data-reel-video="https://assets.mixkit.co/videos/34487/34487-720.mp4"
+                  data-reel-notes="Edited 19 cameras down to a tight 22-minute narrative feature that generated 14.2M organic views in 72 hours."
+                >
+                  Watch Reel
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work Item 4 -->
+          <article class="work-card reveal-up" data-category="commercial">
+            <div class="work-thumb">
+              <video
+                class="work-video-bg"
+                src="https://assets.mixkit.co/videos/11/11-720.mp4"
+                poster="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80"
+                autoplay
+                muted
+                loop
+                playsinline
+              ></video>
+              <div class="work-badge-row">
+                <span class="work-pill">BRAND FILM</span>
+                <span class="work-pill">02:15 · ANAMORPHIC</span>
+              </div>
+              <div class="work-thumb-bottom">
+                <span class="mono-label" style="color:#FFFFFF;">KINETIC ATHLETICS</span>
+              </div>
+            </div>
+            <div class="work-body">
+              <div>
+                <h3 class="work-title">No Second Takes — Global Campaign</h3>
+                <p class="work-desc">16mm film grain emulation, match-cut visual transitions across 5 night cities, and original orchestral-percussion score.</p>
+              </div>
+              <div class="work-footer">
+                <span class="work-metric">4.6x Paid Ad ROAS</span>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  style="min-height:38px; padding:0 14px; font-size:0.84rem;"
+                  data-reel-title="No Second Takes — Global Campaign"
+                  data-reel-video="https://assets.mixkit.co/videos/11/11-720.mp4"
+                  data-reel-notes="Includes 1 hero anthem + 24 vertical performance ad variations tested across Meta, TikTok, and YouTube Shorts."
+                >
+                  Watch Reel
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work Item 5 -->
+          <article class="work-card reveal-up delay-1" data-category="retention">
+            <div class="work-thumb">
+              <video
+                class="work-video-bg"
+                src="https://assets.mixkit.co/videos/39879/39879-720.mp4"
+                poster="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80"
+                autoplay
+                muted
+                loop
+                playsinline
+              ></video>
+              <div class="work-badge-row">
+                <span class="work-pill">VIRAL SHORT-FORM SYSTEM</span>
+                <span class="work-pill">30 ASSETS / MO</span>
+              </div>
+              <div class="work-thumb-bottom">
+                <span class="mono-label" style="color:#FFFFFF;">FINTECH SCALE-UP</span>
+              </div>
+            </div>
+            <div class="work-body">
+              <div>
+                <h3 class="work-title">Founder Authority Vertical Engine</h3>
+                <p class="work-desc">Bespoke motion graphics overlays, micro-zoom emphasis, and tactile sound design transforming executive insights into viral reels.</p>
+              </div>
+              <div class="work-footer">
+                <span class="work-metric">+620K Organic Followers</span>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  style="min-height:38px; padding:0 14px; font-size:0.84rem;"
+                  data-reel-title="Founder Authority Vertical Engine"
+                  data-reel-video="https://assets.mixkit.co/videos/39879/39879-720.mp4"
+                  data-reel-notes="Dedicated Hyper Loop pod producing 30 vertical reels per month from a single 2-hour studio recording session."
+                >
+                  Watch Reel
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work Item 6 -->
+          <article class="work-card reveal-up delay-2" data-category="vfx">
+            <div class="work-thumb">
+              <video
+                class="work-video-bg"
+                src="https://assets.mixkit.co/videos/42645/42645-720.mp4"
+                poster="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80"
+                autoplay
+                muted
+                loop
+                playsinline
+              ></video>
+              <div class="work-badge-row">
+                <span class="work-pill">SONIC &amp; MOTION ID</span>
+                <span class="work-pill">00:45 · 4K</span>
+              </div>
+              <div class="work-thumb-bottom">
+                <span class="mono-label" style="color:#FFFFFF;">HYPERION AUDIO</span>
+              </div>
+            </div>
+            <div class="work-body">
+              <div>
+                <h3 class="work-title">Acoustic Geometry Product Film</h3>
+                <p class="work-desc">Macro probe-lens cinematography paired with audio-reactive CGI wave simulations and precision color grading.</p>
+              </div>
+              <div class="work-footer">
+                <span class="work-metric">Sold Out Drop in 48h</span>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  style="min-height:38px; padding:0 14px; font-size:0.84rem;"
+                  data-reel-title="Acoustic Geometry Product Film"
+                  data-reel-video="https://assets.mixkit.co/videos/42645/42645-720.mp4"
+                  data-reel-notes="Combined Laowa 24mm Probe Lens practical footage with Houdini acoustic wave simulations."
+                >
+                  Watch Reel
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 04 // 4-STAGE PRODUCTION PIPELINE ==================== -->
+    <section id="pipeline" class="section section-alt" aria-labelledby="pipeline-heading">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="mono-label">04 // PRODUCTION WORKFLOW</span>
+          <h2 id="pipeline-heading" class="section-title">How We Turn Raw Ideas Into <span class="platinum-text">Measurable Impact</span></h2>
+          <p class="section-subtitle">
+            A battle-tested studio pipeline designed for zero friction, rapid iterations, and agency-grade reliability.
+          </p>
+        </div>
+
+        <div class="pipeline-grid">
+          <div class="step-card reveal-up">
+            <span class="step-num">STAGE 01 // BLUEPRINT</span>
+            <h3 class="step-title">Concept &amp; Hook Architecture</h3>
+            <p class="step-desc">We audit your audience retention patterns, script high-converting visual hooks, and lock storyboards before a single frame is cut.</p>
+          </div>
+          <div class="step-card reveal-up delay-1">
+            <span class="step-num">STAGE 02 // CAPTURE</span>
+            <h3 class="step-title">Principal Shoot &amp; Asset Ingest</h3>
+            <p class="step-desc">On-location cinema production or frictionless cloud ingest of your raw footage with automated proxy generation and LUT calibration.</p>
+          </div>
+          <div class="step-card reveal-up delay-2">
+            <span class="step-num">STAGE 03 // POST LAB</span>
+            <h3 class="step-title">NLE Cut, VFX &amp; Color Finish</h3>
+            <p class="step-desc">Frame-accurate editing, 3D motion graphics, bespoke foley/sound design, and 12-bit theatrical color grading within 48–72 hours.</p>
+          </div>
+          <div class="step-card reveal-up delay-3">
+            <span class="step-num">STAGE 04 // IMPACT</span>
+            <h3 class="step-title">Multi-Format Delivery Matrix</h3>
+            <p class="step-desc">Frame.io timecoded review, followed by instant master delivery in 16:9, 9:16, and 1:1 with custom thumbnails and hook variants.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 05 // START A PROJECT ==================== -->
+    <section id="contact" class="section" aria-labelledby="contact-heading">
+      <div class="container contact-grid">
+        <div class="reveal-up">
+          <span class="mono-label">05 // INITIATE PRODUCTION</span>
+          <h2 id="contact-heading" class="section-title" style="margin-top: var(--space-3);">
+            Ready to Turn Your Next Idea Into <span class="platinum-text">Impact?</span>
+          </h2>
+          <p class="section-subtitle" style="margin-top: var(--space-4);">
+            Tell us about your project, timeline, and goals. Our Executive Producer will respond within 4 business hours with a tailored production roadmap and sample reel.
+          </p>
+
+          <div class="hero-manifesto" style="margin-top: var(--space-8);">
+            <div class="hero-manifesto-line">
+              <svg class="star-sparkle" width="20" height="20" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+                <path d="M128 16l30 78 78 30-78 30-30 78-30-78-78-30 78-30z"/>
+              </svg>
+              <span>HYPER LOOP MEDIA ®</span>
+            </div>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 4px;">
+              ✦ Video Editing &amp; Creative Production<br />
+              ✦ Turning Ideas Into Impact
+            </p>
+          </div>
+
+          <ul class="spec-checklist">
+            <li>
+              <svg width="20" height="20" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="216 72 104 184 48 128"/>
+              </svg>
+              <span>Dedicated Slack &amp; Frame.io Studio Channel</span>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="216 72 104 184 48 128"/>
+              </svg>
+              <span>Full Project Files &amp; Raw Stems Available on Request</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="contact-card reveal-up delay-1">
+          <div id="formErrorSummary" class="error-summary" role="alert" tabindex="-1" hidden>
+            <h3>Please resolve the following items before submitting:</h3>
+            <ul id="formErrorList"></ul>
+          </div>
+
+          <form id="projectBriefForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="clientName" class="form-label">Your Name <span aria-hidden="true">*</span></label>
+                <input type="text" id="clientName" name="clientName" class="form-control" autocomplete="name" required aria-describedby="clientNameError" placeholder="Alex Rivera" />
+                <span id="clientNameError" class="field-error" hidden>Please enter your full name.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="clientEmail" class="form-label">Work Email <span aria-hidden="true">*</span></label>
+                <input type="email" id="clientEmail" name="clientEmail" class="form-control" autocomplete="email" required aria-describedby="clientEmailError" placeholder="alex@company.com" />
+                <span id="clientEmailError" class="field-error" hidden>Please enter a valid work email address.</span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="serviceType" class="form-label">Primary Service Needed <span aria-hidden="true">*</span></label>
+                <select id="serviceType" name="serviceType" class="form-control" required aria-describedby="serviceTypeError">
+                  <option value="">Select a capability...</option>
+                  <option value="editing">High-Retention Video Editing Retainer</option>
+                  <option value="commercial">Commercial / Brand Film Production</option>
+                  <option value="vfx">3D Motion Graphics &amp; VFX Finishing</option>
+                  <option value="full">Full-Scale Creative Production Partner</option>
+                </select>
+                <span id="serviceTypeError" class="field-error" hidden>Please select a primary production service.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="budgetTier" class="form-label">Estimated Monthly / Project Scope</label>
+                <select id="budgetTier" name="budgetTier" class="form-control">
+                  <option value="starter">$3,500 – $7,500 (Editing Pod / Campaign)</option>
+                  <option value="growth" selected>$7,500 – $18,000 (Full Production &amp; Growth Engine)</option>
+                  <option value="enterprise">$18,000+ (Global Commercial / Custom Studio)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="projectVision" class="form-label">Project Vision &amp; Deliverables <span aria-hidden="true">*</span></label>
+              <span id="projectVisionHint" class="form-hint">Share links, target platforms (YouTube, Commercial, Reels), or launch dates.</span>
+              <textarea id="projectVision" name="projectVision" class="form-control" required aria-describedby="projectVisionHint projectVisionError" placeholder="We're launching our flagship product next month and need a 90s hero film plus 12 high-retention vertical cutdowns..."></textarea>
+              <span id="projectVisionError" class="field-error" hidden>Please share a brief description of your project goals (at least 10 characters).</span>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              <span>Send Production Brief to HYPER LOOP MEDIA ®</span>
+              <svg width="18" height="18" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="40" y1="128" x2="216" y2="128"/>
+                <polyline points="144 56 216 128 144 200"/>
+              </svg>
+            </button>
+
+            <div id="formSuccessBox" class="form-success" role="status" aria-live="polite" hidden>
+              <strong>Production Brief Received!</strong> Thank you for contacting <strong>HYPER LOOP MEDIA ®</strong>. Our Executive Producer has logged your brief and will reply within 4 business hours.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div style="max-width: 420px;">
+          <a href="#" class="brand-logo">
+            <span class="brand-logo-img-wrap">
+              <img src="assets/hyperloop-logo.jpg" alt="HYPER LOOP MEDIA Official Monogram" />
+            </span>
+            <span>HYPER LOOP MEDIA<span class="brand-reg">®</span></span>
+          </a>
+          <p style="color: var(--text-secondary); margin-top: var(--space-3); font-size: 0.95rem;">
+            ✦ Video Editing &amp; Creative Production<br />
+            ✦ Turning Ideas Into Impact
+          </p>
+        </div>
+
+        <div style="display:flex; gap: var(--space-12); flex-wrap: wrap;">
+          <div>
+            <div class="mono-label" style="margin-bottom: var(--space-3);">NAVIGATION</div>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; color:var(--text-secondary); font-size:0.92rem;">
+              <li><a href="#capabilities">Capabilities</a></li>
+              <li><a href="#craft">Color &amp; VFX Inspector</a></li>
+              <li><a href="#work">Selected Works</a></li>
+              <li><a href="#pipeline">Studio Pipeline</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="mono-label" style="margin-bottom: var(--space-3);">STUDIO SPECS</div>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:8px; color:var(--text-secondary); font-size:0.92rem;">
+              <li>Premiere Pro &amp; After Effects Pipeline</li>
+              <li>DaVinci Resolve ACEScct Color</li>
+              <li>Cinema 4D &amp; Houdini Motion Lab</li>
+              <li>Frame.io Enterprise Review</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 HYPER LOOP MEDIA ®. All rights reserved.</span>
+        <span style="font-family: var(--font-mono); font-size: 0.76rem;">OBSIDIAN &amp; BRUSHED PLATINUM EDITION</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== VIDEO LIGHTBOX & CASE STUDY MODAL ==================== -->
+  <div class="modal-backdrop" id="caseModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-dialog">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:var(--space-4);">
+        <span class="mono-label">MASTER PRODUCTION SCREENING ROOM</span>
+        <button type="button" class="icon-btn" id="closeModalBtn" aria-label="Close video screening modal">
+          <svg width="20" height="20" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" aria-hidden="true">
+            <line x1="200" y1="56" x2="56" y2="200"/>
+            <line x1="200" y1="200" x2="56" y2="56"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-video-wrap">
+        <video id="modalVideoPlayer" controls playsinline muted loop></video>
+      </div>
+      <h3 id="modalTitle" class="section-title" style="font-size: 1.6rem; margin-bottom: var(--space-2);"></h3>
+      <p id="modalNotes" style="color: var(--text-secondary); margin-bottom: var(--space-6); font-size: 0.96rem;"></p>
+      <div style="display:flex; justify-content:flex-end; gap:var(--space-3);">
+        <a href="#contact" class="btn btn-primary" id="modalBookBtn">Request Similar Production</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== INTERACTIVE SCRIPTS ==================== -->
+  <script>
+    (function () {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // 1. VOLUMETRIC SILVER DUST & SPECULAR STAR PARTICLE ENGINE
+      const pCanvas = document.getElementById('particleCanvas');
+      const pCtx = pCanvas.getContext('2d');
+      const particleToggleBtn = document.getElementById('particleToggleBtn');
+      let particlesActive = !prefersReducedMotion;
+      let pWidth = (pCanvas.width = window.innerWidth);
+      let pHeight = (pCanvas.height = window.innerHeight);
+      const pointer = { x: pWidth * 0.75, y: pHeight * 0.25, active: false };
+
+      window.addEventListener('resize', () => {
+        pWidth = pCanvas.width = window.innerWidth;
+        pHeight = pCanvas.height = window.innerHeight;
+      });
+
+      window.addEventListener('pointermove', (e) => {
+        pointer.x = e.clientX;
+        pointer.y = e.clientY;
+        pointer.active = true;
+      });
+
+      const PARTICLE_COUNT = 88;
+      const particles = Array.from({ length: PARTICLE_COUNT }, (_, i) => ({
+        x: Math.random() * pWidth,
+        y: Math.random() * pHeight,
+        vx: -0.22 - Math.random() * 0.35,
+        vy: 0.14 + Math.random() * 0.28,
+        r: i % 9 === 0 ? 2.2 : 0.8 + Math.random() * 1.4,
+        alpha: 0.18 + Math.random() * 0.65,
+        phase: Math.random() * Math.PI * 2,
+        isStar: i % 11 === 0
+      }));
+
+      function drawParticles() {
+        pCtx.clearRect(0, 0, pWidth, pHeight);
+        const isLightMode = document.documentElement.getAttribute('data-theme') === 'light';
+        const rgb = isLightMode ? '20, 24, 36' : '240, 244, 255';
+
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+
+          if (particlesActive) {
+            p.x += p.vx;
+            p.y += p.vy;
+            p.phase += 0.025;
+
+            if (pointer.active) {
+              const dx = p.x - pointer.x;
+              const dy = p.y - pointer.y;
+              const distSq = dx * dx + dy * dy;
+              if (distSq < 19000 && distSq > 1) {
+                const dist = Math.sqrt(distSq);
+                p.x += (dx / dist) * 0.65;
+                p.y += (dy / dist) * 0.65;
+              }
+            }
+
+            if (p.x < -20) p.x = pWidth + 20;
+            if (p.y > pHeight + 20) p.y = -20;
+          }
+
+          const beamBoost = Math.max(0.3, 1 - Math.abs((p.x / pWidth) - (1 - p.y / pHeight)) * 0.6);
+          const curAlpha = Math.min(0.95, p.alpha * (0.65 + 0.35 * Math.sin(p.phase)) * beamBoost);
+
+          pCtx.fillStyle = `rgba(${rgb}, ${curAlpha})`;
+          pCtx.beginPath();
+          pCtx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          pCtx.fill();
+
+          if (p.isStar && curAlpha > 0.45) {
+            const flareLen = p.r * 5.2;
+            pCtx.strokeStyle = `rgba(${rgb}, ${curAlpha * 0.75})`;
+            pCtx.lineWidth = 0.8;
+            pCtx.beginPath();
+            pCtx.moveTo(p.x - flareLen, p.y);
+            pCtx.lineTo(p.x + flareLen, p.y);
+            pCtx.moveTo(p.x, p.y - flareLen);
+            pCtx.lineTo(p.x, p.y + flareLen);
+            pCtx.stroke();
+          }
+
+          if (pointer.active) {
+            const dx = p.x - pointer.x;
+            const dy = p.y - pointer.y;
+            const d = Math.sqrt(dx * dx + dy * dy);
+            if (d < 125) {
+              pCtx.strokeStyle = `rgba(${rgb}, ${(1 - d / 125) * 0.18})`;
+              pCtx.lineWidth = 0.6;
+              pCtx.beginPath();
+              pCtx.moveTo(p.x, p.y);
+              pCtx.lineTo(pointer.x, pointer.y);
+              pCtx.stroke();
+            }
+          }
+        }
+
+        if (particlesActive) {
+          requestAnimationFrame(drawParticles);
+        }
+      }
+
+      drawParticles();
+
+      particleToggleBtn.addEventListener('click', () => {
+        particlesActive = !particlesActive;
+        particleToggleBtn.setAttribute('aria-pressed', String(particlesActive));
+        particleToggleBtn.setAttribute(
+          'aria-label',
+          particlesActive ? 'Pause background particle animation' : 'Resume background particle animation'
+        );
+        if (particlesActive) requestAnimationFrame(drawParticles);
+      });
+
+      // 2. SCROLL REVEAL STAGGER OBSERVER
+      const revealEls = document.querySelectorAll('.reveal-up');
+      if ('IntersectionObserver' in window && !prefersReducedMotion) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12 }
+        );
+        revealEls.forEach((el) => io.observe(el));
+      } else {
+        revealEls.forEach((el) => el.classList.add('is-visible'));
+      }
+
+      // 3. BENTO CARD SPOTLIGHT & HERO LOGO 3D TILT
+      document.querySelectorAll('.bento-card').forEach((card) => {
+        card.addEventListener('pointermove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width) * 100;
+          const y = ((e.clientY - rect.top) / rect.height) * 100;
+          card.style.setProperty('--mouse-x', x + '%');
+          card.style.setProperty('--mouse-y', y + '%');
+        });
+      });
+
+      const monolithCard = document.getElementById('logoMonolithCard');
+      if (monolithCard && !prefersReducedMotion) {
+        monolithCard.addEventListener('pointermove', (e) => {
+          const rect = monolithCard.getBoundingClientRect();
+          const rx = (((e.clientY - rect.top) / rect.height) - 0.5) * -7;
+          const ry = (((e.clientX - rect.left) / rect.width) - 0.5) * 9;
+          monolithCard.style.transform = `perspective(900px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg)`;
+        });
+        monolithCard.addEventListener('pointerleave', () => {
+          monolithCard.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg)';
+        });
+      }
+
+      // 4. THEME SWITCHER
+      const htmlEl = document.documentElement;
+      const themeBtn = document.getElementById('themeToggleBtn');
+      themeBtn.addEventListener('click', () => {
+        const isLight = htmlEl.getAttribute('data-theme') === 'light';
+        const nextTheme = isLight ? 'dark' : 'light';
+        htmlEl.setAttribute('data-theme', nextTheme);
+        themeBtn.setAttribute('aria-pressed', String(!isLight));
+        themeBtn.setAttribute('aria-label', isLight ? 'Switch to light theme' : 'Switch to dark theme');
+        if (!particlesActive) drawParticles();
+      });
+
+      // 5. MOBILE NAVIGATION TOGGLE
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const primaryNav = document.getElementById('primary-nav');
+      mobileMenuBtn.addEventListener('click', () => {
+        const expanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+        mobileMenuBtn.setAttribute('aria-expanded', String(!expanded));
+        primaryNav.classList.toggle('is-open', !expanded);
+      });
+
+      // 6. INTERACTIVE LIVE VIDEO NLE SHOWREEL MONITOR
+      const chapters = [
+        {
+          title: '01 // Flagship Brand Anthems',
+          sub: 'Dynamic rhythm cutting, volumetric light synthesis & spatial sound design',
+          codec: 'PRORES 4444 XQ // LUT: OBSIDIAN-SILVER',
+          videoUrl: 'https://assets.mixkit.co/videos/41574/41574-720.mp4'
+        },
+        {
+          title: '02 // High-Retention Creator Engines',
+          sub: 'Psychometric 1.5s visual hooks, kinetic typography & multi-cam storytelling',
+          codec: 'RED R3D 8K // LUT: RETENTION-PLATINUM',
+          videoUrl: 'https://assets.mixkit.co/videos/34487/34487-720.mp4'
+        },
+        {
+          title: '03 // 3D Motion & VFX Compositing',
+          sub: 'Octane CGI monolith reveals, HUD telemetry tracking & procedural particles',
+          codec: 'EXR 32-BIT FLOAT // ACEScg',
+          videoUrl: 'https://assets.mixkit.co/videos/44561/44561-720.mp4'
+        },
+        {
+          title: '04 // Night Aerial & Automotive Cinema',
+          sub: 'Multi-ratio 16:9 + 9:16 + 1:1 synchronized delivery with A/B hook testing',
+          codec: 'ARRI LogC4 // MASTER DELIVERABLE',
+          videoUrl: 'https://assets.mixkit.co/videos/11/11-720.mp4'
+        }
+      ];
+
+      const heroVideo = document.getElementById('heroShowreelVideo');
+      const playToggle = document.getElementById('reelPlayToggle');
+      const playIcon = document.getElementById('reelPlayIcon');
+      const timecodeDisplay = document.getElementById('timecodeDisplay');
+      const scrubber = document.getElementById('timelineScrubber');
+      const sceneTitle = document.getElementById('reelSceneTitle');
+      const sceneSub = document.getElementById('reelSceneSub');
+      const codecLabel = document.getElementById('reelCodecLabel');
+      const chapterBtns = document.querySelectorAll('.chapter-btn');
+
+      if (prefersReducedMotion) {
+        heroVideo.pause();
+      }
+
+      function updatePlayButtonUI() {
+        const playing = !heroVideo.paused;
+        playToggle.setAttribute('aria-pressed', String(playing));
+        playToggle.setAttribute('aria-label', playing ? 'Pause showreel video' : 'Play showreel video');
+        playIcon.innerHTML = playing
+          ? '<rect x="56" y="48" width="48" height="160" rx="8"/><rect x="152" y="48" width="48" height="160" rx="8"/>'
+          : '<path d="M228.4 114.3 76.2 26.2A16 16 0 0 0 52 40v176a16 16 0 0 0 24.2 13.8l152.2-88.1a16 16 0 0 0 0-27.4Z"/>';
+      }
+
+      heroVideo.addEventListener('play', updatePlayButtonUI);
+      heroVideo.addEventListener('pause', updatePlayButtonUI);
+
+      heroVideo.addEventListener('timeupdate', () => {
+        const t = heroVideo.currentTime || 0;
+        const sec = Math.floor(t) % 60;
+        const frm = Math.floor((t % 1) * 60);
+        timecodeDisplay.textContent =
+          'TC 00:00:' + String(sec).padStart(2, '0') + ':' + String(frm).padStart(2, '0');
+        if (heroVideo.duration) {
+          scrubber.value = String(Math.floor((t / heroVideo.duration) * 100));
+        }
+      });
+
+      playToggle.addEventListener('click', () => {
+        if (heroVideo.paused) {
+          heroVideo.play();
+        } else {
+          heroVideo.pause();
+        }
+      });
+
+      scrubber.addEventListener('input', (e) => {
+        if (heroVideo.duration) {
+          heroVideo.currentTime = (Number(e.target.value) / 100) * heroVideo.duration;
+        }
+      });
+
+      chapterBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          chapterBtns.forEach((b) => b.setAttribute('aria-selected', 'false'));
+          btn.setAttribute('aria-selected', 'true');
+          const idx = Number(btn.getAttribute('data-chapter'));
+          const ch = chapters[idx];
+          sceneTitle.textContent = ch.title;
+          sceneSub.textContent = ch.sub;
+          codecLabel.textContent = ch.codec;
+          heroVideo.src = ch.videoUrl;
+          heroVideo.play().catch(() => {});
+        });
+      });
+
+      // 7. BEFORE / AFTER COLOR GRADE SLIDER
+      const gradeSlider = document.getElementById('gradeSlider');
+      const gradeStage = document.getElementById('gradeComparisonStage');
+      gradeSlider.addEventListener('input', (e) => {
+        gradeStage.style.setProperty('--split-pct', e.target.value + '%');
+      });
+
+      // 8. PORTFOLIO FILTER
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const workCards = document.querySelectorAll('.work-card');
+      filterBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const filter = btn.getAttribute('data-filter');
+          filterBtns.forEach((b) => b.setAttribute('aria-pressed', 'false'));
+          btn.setAttribute('aria-pressed', 'true');
+          workCards.forEach((card) => {
+            const cat = card.getAttribute('data-category');
+            card.hidden = !(filter === 'all' || cat === filter);
+          });
+        });
+      });
+
+      // 9. VIDEO SCREENING LIGHTBOX MODAL
+      const caseModal = document.getElementById('caseModal');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalNotes = document.getElementById('modalNotes');
+      const modalVideoPlayer = document.getElementById('modalVideoPlayer');
+      const closeModalBtn = document.getElementById('closeModalBtn');
+      const modalBookBtn = document.getElementById('modalBookBtn');
+      let lastFocusedTrigger = null;
+
+      document.querySelectorAll('[data-reel-title]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          lastFocusedTrigger = btn;
+          modalTitle.textContent = btn.getAttribute('data-reel-title');
+          modalNotes.textContent = btn.getAttribute('data-reel-notes');
+          const videoSrc = btn.getAttribute('data-reel-video');
+          if (videoSrc) {
+            modalVideoPlayer.src = videoSrc;
+            modalVideoPlayer.play().catch(() => {});
+          }
+          caseModal.hidden = false;
+          closeModalBtn.focus();
+        });
+      });
+
+      function closeCaseModal() {
+        caseModal.hidden = true;
+        modalVideoPlayer.pause();
+        if (lastFocusedTrigger) lastFocusedTrigger.focus();
+      }
+
+      closeModalBtn.addEventListener('click', closeCaseModal);
+      modalBookBtn.addEventListener('click', () => {
+        caseModal.hidden = true;
+        modalVideoPlayer.pause();
+      });
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !caseModal.hidden) closeCaseModal();
+      });
+
+      // 10. WCAG ACCESSIBLE FORM VALIDATION
+      const briefForm = document.getElementById('projectBriefForm');
+      const errorSummary = document.getElementById('formErrorSummary');
+      const errorList = document.getElementById('formErrorList');
+      const successBox = document.getElementById('formSuccessBox');
+
+      briefForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const fields = [
+          {
+            el: document.getElementById('clientName'),
+            errEl: document.getElementById('clientNameError'),
+            valid: (v) => v.trim().length >= 2,
+            msg: 'Enter your full name.'
+          },
+          {
+            el: document.getElementById('clientEmail'),
+            errEl: document.getElementById('clientEmailError'),
+            valid: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
+            msg: 'Enter a valid work email address.'
+          },
+          {
+            el: document.getElementById('serviceType'),
+            errEl: document.getElementById('serviceTypeError'),
+            valid: (v) => v.trim() !== '',
+            msg: 'Select a primary production service.'
+          },
+          {
+            el: document.getElementById('projectVision'),
+            errEl: document.getElementById('projectVisionError'),
+            valid: (v) => v.trim().length >= 10,
+            msg: 'Share at least 10 characters describing your project goals.'
+          }
+        ];
+
+        errorList.innerHTML = '';
+        let invalidCount = 0;
+
+        fields.forEach((f) => {
+          const isOk = f.valid(f.el.value);
+          f.el.setAttribute('aria-invalid', String(!isOk));
+          f.errEl.hidden = isOk;
+          if (!isOk) {
+            invalidCount++;
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = '#' + f.el.id;
+            a.textContent = f.msg;
+            a.addEventListener('click', (evt) => {
+              evt.preventDefault();
+              f.el.focus();
+            });
+            li.appendChild(a);
+            errorList.appendChild(li);
+          }
+        });
+
+        if (invalidCount > 0) {
+          successBox.hidden = true;
+          errorSummary.hidden = false;
+          errorSummary.focus();
+          return;
+        }
+
+        errorSummary.hidden = true;
+        successBox.hidden = false;
+        briefForm.reset();
+      });
+    })();
+  </script>
+</body>
+</html>
